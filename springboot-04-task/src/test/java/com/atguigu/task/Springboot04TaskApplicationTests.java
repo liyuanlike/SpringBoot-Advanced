@@ -54,24 +54,4 @@ public class Springboot04TaskApplicationTests {
         mailSender.send(mimeMessage);
     }
 
-    @Test
-    public void test1() throws MessagingException {
-        //创建复杂邮件
-        MimeMessage mimeMessage = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
-
-        //邮件设置
-        helper.setSubject("什么时候来杭州？请你吃大餐");
-        helper.setText("<b style='color:red'>吃完大餐看电影，就问瑶瑶行不行？</b><br>附送两张美女照片，是谁家大姑娘，这么可爱？", true);
-
-        helper.setTo("489380134@qq.com");
-        helper.setFrom("740430795@qq.com");
-
-        //上传文件
-        helper.addAttachment("1.jpg", new File("D:/IdeaProjects/springboot-04-task/src/main/resources/static/1.jpg"));
-        helper.addAttachment("2.jpg", new File("D:/IdeaProjects/springboot-04-task/src/main/resources/static/2.jpg"));
-
-        mailSender.send(mimeMessage);
-    }
-
 }
